@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import kr.or.ddit.board.ioc.DbProperty;
+import kr.or.ddit.config.ioc.DbProperty;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:kr/or/ddit/config/spring/ioc/property-placeholder.xml"})

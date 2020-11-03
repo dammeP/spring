@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-	<bean id="collectionBean" class="kr.or.ddit.board.ioc.CollectionBean">
+	<bean id="collectionBean" class="kr.or.ddit.config.ioc.CollectionBean">
 		<property name="list">
 			<list>
 				<value>brown</value>
