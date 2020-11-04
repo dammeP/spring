@@ -13,4 +13,5 @@
 	<!-- @Resource, @Autiwired, @Inject : 해당 어노테이션을 작업해주는 스프링 설정 파일
 		 BeanPostProcessor -->
 	<context:annotation-config/>	 
+	<!-- 나중을 위해서 방지차원에서 적는것, 무조건 사용하지는 않음 -->
 </beans>
