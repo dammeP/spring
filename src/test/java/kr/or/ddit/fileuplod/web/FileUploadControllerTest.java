@@ -22,7 +22,7 @@ public class FileUploadControllerTest extends WebTestConfig{
 	public void viewTest() throws Exception{
 			mockMvc.perform(get("/fileupload/view"))
 					.andExpect(status().isOk())
-					.andExpect(view().name("fileupload/fileupload"))
+					.andExpect(view().name("fileupload/view"))
 					.andDo(print());
 	}
 
@@ -37,8 +37,10 @@ public class FileUploadControllerTest extends WebTestConfig{
 		mockMvc.perform(fileUpload("/fileupload/upload")
 				.file(file)
 				.param("userid", "브라운"))
-				.andExpect(view().name("fileupload/fileupload"))
+				.andExpect(view().name("fileupload/upload"))
 				.andExpect(status().isOk());
-
+		
+		// 다미야 글씨체가 별루야
+		// 쿤이 힘들다고 열심히하래
 	}
 }

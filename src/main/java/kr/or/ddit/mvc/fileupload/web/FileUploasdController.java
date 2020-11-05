@@ -1,4 +1,4 @@
-package kr.or.ddit.fileupload.web;
+package kr.or.ddit.mvc.fileupload.web;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,7 +28,7 @@ public class FileUploasdController {
 
 	@RequestMapping("/view")
 	public String view() {
-		return "fileupload/fileupload";
+		return "fileupload/view";
 	}
 	
 	// 파일 업로드 처리 메서드
@@ -44,7 +44,7 @@ public class FileUploasdController {
 			e.printStackTrace();
 		}
 		
-		return "fileupload/fileupload";
+		return "fileupload/upload";
 		
 	}
 }
