@@ -40,7 +40,5 @@ public class FileUploadControllerTest extends WebTestConfig{
 				.andExpect(view().name("fileupload/upload"))
 				.andExpect(status().isOk());
 		
-		// 다미야 글씨체가 별루야
-		// 쿤이 힘들다고 열심히하래
 	}
 }
