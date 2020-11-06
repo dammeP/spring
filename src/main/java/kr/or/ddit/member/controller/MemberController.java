@@ -10,11 +10,13 @@ import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,7 +24,9 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.or.ddit.common.model.PageVO;
+import kr.or.ddit.member.model.JSRMemberVO;
 import kr.or.ddit.member.model.MemberVO;
+import kr.or.ddit.member.model.MemberVoValidator;
 import kr.or.ddit.member.service.MemberServiceI;
 
 
@@ -51,7 +55,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping(path="/detail")
-	public String memberDetail(@RequestParam("userid")String userid, Model model) {
+	public String memberDetail(String userid, Model model) {
+		
+		// userid 파라미터가 없을 때는 brown 사용자를 보여준다
 		
 		MemberVO memberVO = memberService.getMember(userid);
 		
@@ -89,7 +95,15 @@ public class MemberController {
 	}
 	
 	@RequestMapping(path="/regist" ,method={RequestMethod.POST})
-	public String memberRegister( MemberVO memberVO,@RequestPart("realFile") MultipartFile file) {
+	public String memberRegister(@Valid MemberVO memberVO,BindingResult br,@RequestPart("realFile") MultipartFile file) {
+//	public String memberRegister(@Valid JSRMemberVO memberVO,BindingResult br,@RequestPart("realFile") MultipartFile file) {
+		
+//		new MemberVoValidator().validate(memberVO, br);
+		
+		// 검증을 통과하지 못했으므로 사용자 등록 화면으로 이동
+		if(br.hasErrors()) {
+			return "/member/regist";
+		}
 		
 		File uploadFile = new File("d:\\upload\\" + file.getOriginalFilename());
 		
