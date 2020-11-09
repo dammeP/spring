@@ -25,7 +25,7 @@ $(function(){
 	})
 
 	$('#profileDownBtn').on('click',function(){
-		document.location="/profileDownload?userid=${memberVO.userid}";
+		document.location="/profileDownView?userid=${memberVO.userid}";
 	})
 })
 

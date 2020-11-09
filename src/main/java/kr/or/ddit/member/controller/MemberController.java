@@ -66,6 +66,9 @@ public class MemberController {
 		return "/member/detail";
 	}
 	
+	
+	
+	
 	@RequestMapping(path="/profileImg")
 	public void profileImg(@RequestParam("userid")String userid, Model model,HttpServletResponse response) throws Exception {
 		response.setContentType("image/png");

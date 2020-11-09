@@ -14,12 +14,25 @@
 		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
 	</context:component-scan>
 	
+	<!-- 리턴값이랑 스펠링 똑같아야함 return "ProfileImgView"; -->
+	<bean id="ProfileDownView" class="kr.or.ddit.mvc.view.ProfileDownView"/>	
+	<bean id="ProfileImgView" class="kr.or.ddit.mvc.view.ProfileImgView"/>	
+	<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value="0"></property>
+	</bean>
+	
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- prefix : 접두어, suffix : 접미어 Controller가 리턴하는 문자열에 prefix, suffix를 적용하여 
-			해당 경로의 파일로 응답을 생성 LoginController.getView() ==> "login/view" prefix viewName 
-			suffix "/WEB_INF/views/" + "login/view" + ".jsp" "/WEB_INF/views/login/view.jsp" -->
+			해당 경로의 파일로 응답을 생성 LoginController.getView() ==> "login/view" 
+			prefix 					viewName	 suffix
+			 "/WEB_INF/views/" + "login/view" + ".jsp" 
+			 "/WEB_INF/views/login/view.jsp" 
+			 -->
+		
+		<property name="order" value="1" />
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
@@ -43,4 +56,9 @@
 		 2. WEB-INF : 외부에서 접근불가능한 공간에 저장된 자원들 접근 매핑  -->
 		 <!-- localhost/resources/style.css -->
 		 <mvc:resources mapping="/resources/**" location="/WEB-INF/views/error/"/>
+
+		 
+	
+	
+		 
 </beans>
