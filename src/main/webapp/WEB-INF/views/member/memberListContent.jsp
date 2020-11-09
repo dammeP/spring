@@ -12,7 +12,7 @@ $(document).ready(function(){
 		var userid = $(this).data("userid");
 		console.log("userid : " + userid);
 
-		document.location="/member?userid=" + userid;
+		document.location="/member/detail?userid=" + userid;
 		
 	})
 })
@@ -48,7 +48,7 @@ $(document).ready(function(){
 				</tbody>
 			</table>
 		</div>
-		<a href="${cp }/memberRegist" class="btn btn-default pull-right">사용자
+		<a href="${cp }/member/regist" class="btn btn-default pull-right">사용자
 			등록</a>
 		<%-- 						  pages : ${pages} --%>
 		<%--       					  page : ${page } --%>
@@ -61,7 +61,7 @@ $(document).ready(function(){
 						</c:when>
 						<c:otherwise>
 							<li><a
-								href="${pageContext.request.contextPath }/memberList?page=${i}">${i }</a></li>
+								href="${pageContext.request.contextPath }/member/list?page=${i}">${i }</a></li>
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>

@@ -51,7 +51,6 @@ public class MemberController {
 		model.addAttribute("pages", map.get("pages"));
 		
 		
-		
 //		return "/member/list";
 //		return "tiles.memberList";
 		return "tiles/member/memberListContent";
@@ -67,8 +66,8 @@ public class MemberController {
 		
 		model.addAttribute("memberVO", memberVO);
 		
-//		return "tiles/member/detailContent";
-		return "/member/detail";
+//		return "/member/detail";
+		return "tiles/member/detailContent";
 	}
 	
 	
@@ -110,7 +109,7 @@ public class MemberController {
 		
 		// 검증을 통과하지 못했으므로 사용자 등록 화면으로 이동
 		if(br.hasErrors()) {
-			return "/member/regist";
+			return "tiles/member/registContent";
 		}
 		
 		File uploadFile = new File("d:\\upload\\" + file.getOriginalFilename());
@@ -132,7 +131,7 @@ public class MemberController {
 			return "redirect:/member/list";
 		}
 		else {
-			return "/member/regist";
+			return "tiles/member/registContent";
 		}
 	}
 	
@@ -145,7 +144,7 @@ public class MemberController {
 		
 		model.addAttribute("memberVO", memberVO);
 		
-		return "/member/update";
+		return "tiles/member/updateContent";
 	}
 	
 	
@@ -175,7 +174,7 @@ public class MemberController {
 			return "redirect:/member/detail?userid="+memberVO.getUserid();
 		}
 		else {
-			return "/member/update";
+			return "tiles/member/updateContent";
 		}
 	}
 	
