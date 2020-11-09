@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -80,7 +81,9 @@ public class LoginController {
 	// 		   jsp/servlet 기반의 request 역할을 담당
 	
 	 @RequestMapping(path="/process", params = {"userid"} )
-	   public String process(String userid, String pass, MemberVO memberVO, HttpSession session, Model model
+	   public String process(String userid, String pass, MemberVO memberVO,
+			   				@RequestBody String body,
+			   				HttpSession session, Model model
 	                        , @RequestParam(name="email", required = false, defaultValue = "brown@line.kr") String user_id) {
 	      
 	      logger.debug("LoginController.process() {} / {} / {}", userid, pass, memberVO);

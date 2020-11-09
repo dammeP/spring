@@ -50,7 +50,11 @@ public class MemberController {
 		model.addAttribute("memList", map.get("memberList"));
 		model.addAttribute("pages", map.get("pages"));
 		
-		return "/member/list";
+		
+		
+//		return "/member/list";
+//		return "tiles.memberList";
+		return "tiles/member/memberListContent";
 		
 	}
 	
@@ -63,6 +67,7 @@ public class MemberController {
 		
 		model.addAttribute("memberVO", memberVO);
 		
+//		return "tiles/member/detailContent";
 		return "/member/detail";
 	}
 	

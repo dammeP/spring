@@ -2,8 +2,11 @@ package kr.or.ddit.member.model;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
+@XmlRootElement(name = "memberVO")
 public class MemberVO {
 
 	private String userid;
@@ -18,6 +21,10 @@ public class MemberVO {
 	private Date reg_dt;
 	private String filename;
 	private String realfilename;
+	
+	public MemberVO() {
+	
+	}
 	
 	public MemberVO(String userid, String usernm) {
 		this.userid = userid;
