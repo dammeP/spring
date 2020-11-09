@@ -19,7 +19,9 @@ public class MemberVO {
 	private String filename;
 	private String realfilename;
 	
-	public MemberVO() {
+	public MemberVO(String userid, String usernm) {
+		this.userid = userid;
+		this.usernm = usernm;
 		
 	}
 	
