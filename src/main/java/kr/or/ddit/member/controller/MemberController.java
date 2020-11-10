@@ -57,6 +57,40 @@ public class MemberController {
 		
 	}
 	
+	@RequestMapping("/listAjaxPage")
+	public String listAjaxPage() {
+		return "tiles/member/listAjaxPage";
+	}
+	
+	// 페이지 요청(/list와 다르게 page, pageSize 파라미터가 반드시 존재한다는 가정으로 작성)
+	@RequestMapping("/listAjax")
+	public String listAjax(PageVO pageVO, Model model) {
+		
+		
+		logger.debug("pageVO:{}", pageVO);
+		
+		Map<String, Object> map = memberService.selectAllMemberPage(pageVO);
+		model.addAttribute("memList", map.get("memberList"));
+		model.addAttribute("pages", map.get("pages"));
+		
+		return "jsonView";
+	}
+	
+	@RequestMapping("/listAjaxHTML")
+	public String listAjaxHTML(PageVO pageVO, Model model) {
+		
+		
+		logger.debug("pageVO:{}", pageVO);
+		
+		Map<String, Object> map = memberService.selectAllMemberPage(pageVO);
+		model.addAttribute("memList", map.get("memberList"));
+		model.addAttribute("pages", map.get("pages"));
+		
+		// 응답을 html ==> jsp로 생성
+		return "member/listAjaxHTML";
+	}
+	
+	
 	@RequestMapping(path="/detail")
 	public String memberDetail(String userid, Model model) {
 		
@@ -68,6 +102,22 @@ public class MemberController {
 		
 //		return "/member/detail";
 		return "tiles/member/detailContent";
+	}
+	
+	@RequestMapping("/detailAjaxPage")
+	public String detailAjaxPage() {
+		return "tiles/member/detailAjaxPage";
+	}
+	
+	@RequestMapping(path="/detailAjax")
+	public String memberDetailAjax(String userid, Model model) {
+		
+		// userid 파라미터가 없을 때는 brown 사용자를 보여준다
+		
+		model.addAttribute("memberVO",  memberService.getMember(userid));
+		
+//		return "/member/detail";
+		return "tiles/member/detailAjax";
 	}
 	
 	
