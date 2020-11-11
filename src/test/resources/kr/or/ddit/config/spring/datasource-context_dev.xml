@@ -11,7 +11,7 @@
 	 	 						 mybatis를 통해 sql을 실행할 수 있는 객체(sqlSession)    
 	 -->
 
-	<context:property-placeholder location="classpath:kr/or/ddit/config/db/db.properties"/>
+	<context:property-placeholder location="classpath:kr/or/ddit/config/db/db_dev.properties"/>
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="url" value="${jdbc.url}"/>

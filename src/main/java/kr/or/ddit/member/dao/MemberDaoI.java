@@ -15,7 +15,7 @@ MemberVO getMember(String userId);
 	
 	List<MemberVO> selectAllMemberPage(PageVO pageVO);
 	
-	int selectMemberTotalCount(SqlSession sqlSession);
+	int selectMemberTotalCount();
 //	
 	int insertMember(MemberVO memberVO);
 //

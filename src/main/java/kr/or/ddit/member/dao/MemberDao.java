@@ -69,7 +69,7 @@ public class MemberDao implements MemberDaoI{
 	}
 
 	@Override
-	public int selectMemberTotalCount(SqlSession sqlSession) {
+	public int selectMemberTotalCount() {
 		return sqlSession.selectOne("member.selectMemberTotalCount");
 	}
 //
@@ -118,24 +118,24 @@ public class MemberDao implements MemberDaoI{
 	@Override
 	public int updateMember(MemberVO memberVO) {
 //		SqlSession sqlSession = MybatisUtil.getSqlSession();
-		int updateCnt = 0;
+//		int updateCnt = 0;
+//		
+//		try {
+		return sqlSession.update("member.updateMember", memberVO);
+//		} catch (Exception e) {
+//		}
 		
-		try {
-			updateCnt = sqlSession.update("member.updateMember", memberVO);
-		} catch (Exception e) {
-		}
-		
-		logger.debug("updateCntCNTTTTT:{}", updateCnt);
+//		logger.debug("updateCntCNTTTTT:{}", updateCnt);
 		
 		
-		if(updateCnt == 1) {
+//		if(updateCnt == 1) {
 //			sqlSession.commit();
-		}
-		else {
+//		}
+//		else {
 //			sqlSession.rollback();
-		}
+//		}
 //		sqlSession.close();
-		return updateCnt;
+//		return updateCnt;
 	}
 	
 	

@@ -16,7 +16,7 @@ public interface MemberServiceI {
 	
 	Map<String, Object> selectAllMemberPage(PageVO pageVO);
 	
-	int selectMemberTotalCount(SqlSession sqlSession);
+	int selectMemberTotalCount();
 //
 	int insertMember(MemberVO memberVO);
 //	

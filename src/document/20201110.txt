@@ -21,3 +21,9 @@ kr.or.ddit.board.service
 				 
 ==> service 패키지에 있는 모든 클래스의 메서드가 실행될 때 --> pointCut
 		profiling(시간측정)				 
+		
+		
+1. memberDao, memberService 모든 메서드에 대해 테스트 코드 작성
+2. controller 테스트 코드는 작성하지 않아도 됨(시간이 남으면 작성)
+3. 작성된 테스트 코드가 ALL GREEN이 나오도록 코드 수정
+4. memberDao, memberService는 커버리지율이 100%에 접근하기		

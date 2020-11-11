@@ -28,23 +28,20 @@ public class MemberControllerTest extends WebTestConfig{
 	
 	@Test
 	public void memberListTest() throws Exception {
-		mockMvc.perform(get("/member/list")
+		mockMvc.perform(get("/member/listAjaxHTML")
 				.param("page", "1")
-				.param("pageSize", "7"))
+				.param("pageSize", "5"))
 				.andExpect(status().is(200))
-				.andExpect(view().name("/member/list"))
-				.andExpect(model().attributeExists("page"))
-				.andExpect(model().attributeExists("pageSize"))
-				.andExpect(model().attributeExists("memList"))
-				.andExpect(model().attributeExists("pages"));
+				.andExpect(view().name("member/listAjaxHTML"))
+				.andExpect(model().attributeExists("pageVO"));
 		
 	}
 	@Test
 	public void memberDetailTest() throws Exception {
-		mockMvc.perform(get("/member/detail")
-				.param("userid", "1"))
+		mockMvc.perform(get("/member/detailAjax")
+				.param("userid", "brown"))
 				.andExpect(status().is(200))
-				.andExpect(view().name("/member/detail"))
+				.andExpect(view().name("jsonView"))
 				.andExpect(model().attributeExists("memberVO"));
 		
 	}
@@ -63,9 +60,11 @@ public class MemberControllerTest extends WebTestConfig{
 				.param("usernm", "뉴")
 				.param("alias", "뉴")
 				.param("addr1", "뉴")
-				.param("addr2", "뉴"))
-				.andExpect(status().is(302))
-				.andExpect(view().name("redirect:/member/list"));
+				.param("addr2", "뉴")
+				.param("zipcode", ""))
+				.andExpect(view().name("redirect:/member/list"))
+				.andExpect(status().is3xxRedirection())
+				.andDo(print());
 	}
 	
 	@Test
