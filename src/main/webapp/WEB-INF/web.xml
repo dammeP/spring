@@ -14,6 +14,7 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:kr/or/ddit/config/spring/root-context.xml
+					 classpath:kr/or/ddit/config/spring/aop-context.xml
 					classpath:kr/or/ddit/config/spring/interceptor-context.xml</param-value>
 	</context-param>
 	

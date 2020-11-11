@@ -35,14 +35,16 @@ function memberDetailAjax(userid){
 			success : function(data){
 
 				var member = data.memberVO;
-				html += "<label>" + member.userid + "</label>";
-				html += "<label>" + member.usernm + "</label>";
-				html += "<label>" + member.alias + "</label>";
-				html += "<label>" + member.addr1 + "</label>";
-				html += "<label>" + member.addr2 + "</label>";
-				html += "<label>" + member.zipcode + "</label>";
-				html += "<label>" + member.reg_dt + "</label>";
 
+				$("#profile").attr("src", "${cp }/profileImg?userid=" + userid);
+				$("#profileDownBtn").html(member.realFilename);
+				$("#userid").html(member.userid);
+				$("#usernm").html(member.usernm);
+				$("#alias").html(member.alias);
+				$("#addr1").html(member.addr1);
+				$("#addr2").html(member.addr2);
+				$("#zipcode").html(member.zipcode);
+				$("#reg_dt").html(member.fmt_reg_dt);
 			}
 
 		})
@@ -52,78 +54,72 @@ function memberDetailAjax(userid){
 }
 
 </script>
-
-
+ajax
 <form class="form-horizontal" role="form">
 
 	<div class="form-group">
 		<label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
 		<div class="col-sm-10">
-			<%-- 							<img src="${cp }/profile/${memberVO.filename }"/> --%>
-			<img src="${cp }/member/profileImg?userid=${memberVO.userid}" /><br>
-			<button id="profileDownBtn" data-userid="${memberVO.userid }"
-				type="button" class="btn btn-default">다운로드 :
-				${memberVO.realfilename }</button>
+			<%--<img src="${cp }/profile/${memberVo.filename}"/> --%>
 
+			<img id="profile" /><br>
+			<button id="profileDownBtn" type="button" class="btn btn-default">다운로드:</button>
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label id="userid" for="userid" class="col-sm-2 control-label">사용자
-			아이디</label>
+		<label for="userid" class="col-sm-2 control-label">사용자 아이디</label>
 		<div class="col-sm-10">
-			<label id="userid_lb" data-userid="${memberVO.userid }"
-			class="control=label">${memberVO.userid }</label>
+			<label class="control-label" id="userid"></label>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
 		<div class="col-sm-10">
-			<label class="control=label">${memberVO.usernm }</label>
+			<label class="control-label" id="usernm"></label>
 		</div>
 	</div>
-
 	<div class="form-group">
 		<label for="userNm" class="col-sm-2 control-label">별명</label>
 		<div class="col-sm-10">
-			<label class="control=label">${memberVO.alias }</label>
+			<label class="control-label" id="alias"></label>
 		</div>
 	</div>
-
 	<div class="form-group">
 		<label for="pass" class="col-sm-2 control-label">Password</label>
 		<div class="col-sm-10">
-			<label class="control=label">********</label>
+			<label class="control-label">********</label>
 		</div>
 	</div>
+
+
 
 	<div class="form-group">
 		<label for="addr1" class="col-sm-2 control-label">주소</label>
 		<div class="col-sm-10">
-			<label class="control=label">${memberVO.addr1 }</label>
+			<label class="control-label" id="addr1"></label>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="addr2" class="col-sm-2 control-label">상세주소</label>
 		<div class="col-sm-10">
-			<label class="control=label">${memberVO.addr2 }</label>
+			<label class="control-label" id="addr2"></label>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="zipcode" class="col-sm-2 control-label">우편번호</label>
 		<div class="col-sm-10">
-			<label class="control=label">${memberVO.zipcode }</label>
+			<label class="control-label" id="zipcode"></label>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="reg_dt" class="col-sm-2 control-label">등록일자</label>
 		<div class="col-sm-10">
-			<label class="control=label"><fmt:formatDate
-					value="${memberVO.reg_dt}" pattern="YYYY-MM-dd" /></label>
+			<label class="control-label" id="reg_dt"></label>
 		</div>
 	</div>
 
@@ -131,7 +127,6 @@ function memberDetailAjax(userid){
 		<div class="col-sm-offset-2 col-sm-10">
 			<button id="modifyBtn" type="button" class="btn btn-default">사용자
 				수정</button>
-			<%-- 							<a href="${cp }/memberRegist" class="btn btn-default pull-right">사용자 등록</a> --%>
 		</div>
 	</div>
 </form>

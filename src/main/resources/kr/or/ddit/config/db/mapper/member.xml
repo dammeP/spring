@@ -10,15 +10,8 @@
   </select>
   
   <select id="selectAllMember" resultType="MemberVO">
-  	SELECT *
-	FROM
-	    (SELECT ROWNUM rn, a.* 
-	     FROM
-	        (SELECT *
-	         FROM users
-	         ORDER BY userid) a )    
-<!--     WHERE rn BETWEEN 1 AND 7        -->
-	WHERE rn BETWEEN (:page -1) * :pageSize +1 AND :page * :pageSize
+	SELECT *
+	  FROM users 
   </select>
   
   <select id="selectAllMemberPage" parameterType="kr.or.ddit.common.model.PageVO" resultType="MemberVO">

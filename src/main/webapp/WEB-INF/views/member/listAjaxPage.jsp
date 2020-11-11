@@ -77,11 +77,11 @@
 						// Controller에서 @RequestBody  JSON <---> JAVA OBJECT
 				method : "get",
 				success : function(data){
-					$('#memberList').html(data);	
+// 					$('#memberList').html(data);	
 
-// 					var htmlArr = data.split("$$$$$$$$SEPARATOR$$$$$$$$");
-// 					$('#memberList').html(htmlArr[0]);	
-// 					$('ul.paginationt').html(htmlArr[1]);	
+					var htmlArr = data.split("$$$$$$$$SEPARATOR$$$$$$$$");
+					$("#memberList").html(htmlArr[0]);
+					$("ul.pagination").html(htmlArr[1]);
 
 					// 페이지 내비게이션 html문자열 동적으로 생성하기
 

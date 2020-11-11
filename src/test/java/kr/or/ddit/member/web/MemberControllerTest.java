@@ -1,4 +1,4 @@
-package kr.or.ddit.member;
+package kr.or.ddit.member.web;
 
 import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.fileUpload;

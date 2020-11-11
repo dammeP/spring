@@ -117,7 +117,7 @@ public class MemberController {
 		model.addAttribute("memberVO",  memberService.getMember(userid));
 		
 //		return "/member/detail";
-		return "tiles/member/detailAjax";
+		return "jsonView";
 	}
 	
 	
