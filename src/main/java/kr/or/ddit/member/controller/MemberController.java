@@ -94,8 +94,6 @@ public class MemberController {
 	@RequestMapping(path="/detail")
 	public String memberDetail(String userid, Model model) {
 		
-		// userid 파라미터가 없을 때는 brown 사용자를 보여준다
-		
 		MemberVO memberVO = memberService.getMember(userid);
 		
 		model.addAttribute("memberVO", memberVO);
@@ -111,8 +109,6 @@ public class MemberController {
 	
 	@RequestMapping(path="/detailAjax")
 	public String memberDetailAjax(String userid, Model model) {
-		
-		// userid 파라미터가 없을 때는 brown 사용자를 보여준다
 		
 		model.addAttribute("memberVO",  memberService.getMember(userid));
 		
@@ -227,7 +223,5 @@ public class MemberController {
 			return "tiles/member/updateContent";
 		}
 	}
-	
-	
 
 }

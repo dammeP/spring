@@ -29,8 +29,8 @@ $(function(){
 function memberDetailAjax(userid){
 
 	$.ajax({url : "/member/detailAjax",
-			// data : {userid : userid},		// 앞에꺼는 자바스크립트의 필드명, 두번째는 값
-			data : "userid="+userid,
+			data : {userid : userid},		// 앞에꺼는 자바스크립트의 필드명, 두번째는 값
+// 			data : "userid="+userid,
 			method : "get",
 			success : function(data){
 

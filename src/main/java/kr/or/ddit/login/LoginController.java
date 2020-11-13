@@ -135,5 +135,10 @@ public class LoginController {
 		 return mav;
 	 }
 	
-	
+	 @RequestMapping("/test")
+		public String getView(HttpSession session, MemberVO memberVO , Model model) {
+			
+			return "multi/view";
+		}
+	 
 }
