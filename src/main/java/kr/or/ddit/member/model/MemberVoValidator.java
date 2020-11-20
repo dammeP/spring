@@ -19,10 +19,22 @@ public class MemberVoValidator implements Validator{
 	public void validate(Object target, Errors errors) {
 		MemberVO memberVO = (MemberVO)target;
 		
+		// userid 값이 null이거나 empty 문자열이면 안됨
+		if(memberVO.getUserid() == null || memberVO.getUserid().equals("")) {
+			errors.rejectValue("userid", "required");
+		}
+
+		// pass 값이 null이거나 empty 문자열이면 안됨
+		if(memberVO.getPass() == null || memberVO.getPass().equals("")) {
+			errors.rejectValue("pass", "required");
+		}
+		
 		// usernm 값이 null이거나 empty 문자열이면 안됨
 		if(memberVO.getUsernm() == null || memberVO.getUsernm().equals("")) {
 			errors.rejectValue("usernm", "required");
 		}
+		
+		
 	}
 
 }

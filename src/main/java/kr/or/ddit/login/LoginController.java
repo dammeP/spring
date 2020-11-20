@@ -82,7 +82,6 @@ public class LoginController {
 	
 	 @RequestMapping(path="/process", params = {"userid"} )
 	   public String process(String userid, String pass, MemberVO memberVO,
-			   				@RequestBody String body,
 			   				HttpSession session, Model model
 	                        , @RequestParam(name="email", required = false, defaultValue = "brown@line.kr") String user_id) {
 	      

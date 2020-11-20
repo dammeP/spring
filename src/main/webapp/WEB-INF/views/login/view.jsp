@@ -98,7 +98,7 @@
   	
     <div class="container">
 
-      <form class="form-signin" action="${pageContext.request.contextPath }/login/process" method="post">
+      <form class="form-signin" action="${pageContext.request.contextPath }/login/process" >
         <h2 class="form-signin-heading"><spring:message code="login.signin"></spring:message></h2>
         <label for="inputEmail" class="sr-only"><spring:message code="login.userid"></spring:message></label>
         <input type="email" id="inputEmail" name="userid" class="form-control" placeholder="Email address" required autofocus value="brown">
